@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  frontend:
+    build: ./frontend
+    working_dir: /app/redux-sample
+    tty: true
+    ports:
+      - "82:5173"
+    volumes:
+      - './frontend:/app/redux-sample'
+    command: bash -c "npm i && npm run dev"
