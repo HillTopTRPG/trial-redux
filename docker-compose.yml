@@ -5,6 +5,8 @@ services:
     build: ./frontend
     working_dir: /app/redux-sample
     tty: true
+    env_file:
+      - ./frontend/.env
     ports:
       - "82:5173"
     volumes:
