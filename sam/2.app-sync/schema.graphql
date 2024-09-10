@@ -1,0 +1,78 @@
+# noinspection GraphQLUnresolvedReference,GraphQLMissingType
+
+schema {
+  mutation: Mutation
+#  subscription: Subscription
+  query: Query
+}
+
+type Mutation {
+  # 追加・認証系
+  addUser(input: UserInput): User
+  addProject(input: ProjectInput): Project
+
+  # 更新系
+  updateUser(input: UpdateUserInput): User
+  updateProject(input: UpdateProjectInput): Project
+
+  # 削除系
+  deleteUser(input: DeleteInput): DeletedId
+  deleteProject(input: DeleteInput): DeletedId
+}
+
+#type Subscription {
+#
+#}
+
+type Query {
+  users: [User]
+  projects: [Project]
+}
+
+###############################
+# Input系
+
+input UserInput {
+  name: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  id: String!
+  name: String!
+  password: String!
+}
+
+input ProjectInput {
+  title: String!
+  description: String!
+}
+
+input UpdateProjectInput {
+  id: String!
+  title: String!
+  description: String!
+}
+
+input DeleteInput {
+  id: String!
+}
+
+###############################
+# 戻り値系
+
+type User {
+  id: ID!
+  name: String!
+  password: String!
+}
+
+type Project {
+  id: ID!
+  title: String!
+  description: String!
+}
+
+type DeletedId {
+  id: String!
+}

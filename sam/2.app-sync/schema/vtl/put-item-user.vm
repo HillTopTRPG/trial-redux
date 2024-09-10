@@ -1,0 +1,11 @@
+#set($now = $util.time.nowEpochSeconds())
+{
+  "version": "2018-05-29",
+  "operation": "PutItem",
+  "key" : {
+    "id": $util.dynamodb.toDynamoDBJson($util.autoUlid()),
+    "name": $util.dynamodb.toDynamoDBJson($ctx.args.input.name),
+    "password": $util.dynamodb.toDynamoDBJson($ctx.args.input.password),
+    "createdAt": $util.dynamodb.toDynamoDBJson($now)
+  }
+}

@@ -1,0 +1,6 @@
+**/.aws-sam
+**/samconfig.toml
+# 1.dynamo-dbの作成には秘匿情報を使わないため除外
+!1.dynamo-db/samconfig.toml
+.env
+lambda/nodejs/node_modules

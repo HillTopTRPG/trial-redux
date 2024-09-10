@@ -1,0 +1,35 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[default]
+[default.deploy.parameters]
+stack_name = "redux-sample-dynamo-db"
+s3_prefix = "redux-sample-dynamo-db"
+parameter_overrides = "ProjectName=\"redux-sample\""
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND"
+confirm_changeset = true
+resolve_s3 = true
+region = "ap-northeast-1"
+disable_rollback = true
+image_repositories = []
+[default.build.parameters]
+cached = false
+parallel = true
+
+[dev]
+[dev.deploy.parameters]
+stack_name = "dev-redux-sample-dynamo-db"
+s3_prefix = "dev-redux-sample"
+parameter_overrides = [
+  "ProjectName=dev-redux-sample"
+]
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND"
+confirm_changeset = true
+resolve_s3 = true
+region = "ap-northeast-1"
+disable_rollback = true
+image_repositories = []
+[dev.build.parameters]
+cached = false
+parallel = true
